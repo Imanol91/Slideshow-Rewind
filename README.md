@@ -7,12 +7,15 @@ NOTE: Touch event are activated only on mobile device
 
 Download SlideshowRewind.js or SlideshowRewind.min.js file, and on HTML file put this:
 
+``` html
 <script src="SlideshowRewind.min.js"></script>
+```
 
 or
 
+``` html
 <script src="SlideshowRewind.js"></script>
-
+```
 
 
 
