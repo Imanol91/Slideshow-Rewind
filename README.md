@@ -1,5 +1,5 @@
 # Slideshow-Rewind
-A simple library to create slideshow with rewind effect or pseudo continuos effect when we passing the last slide to first slide and vice versa
+A simple library to create slideshow with rewind effect or pseudo continuos effect when we move from the last slide to the first slide and vice versa
 
 NOTE: Touch event are activated only on mobile device
 
@@ -12,4 +12,11 @@ Download SlideshowRewind.js or SlideshowRewind.min.js file, and on HTML file put
 or
 
 <script src="SlideshowRewind.js"></script>
+
+
+
+
+## Authors
+
+* **Emanuel Rojas Vásquez** - *Initial work* - [Imanol91](https://github.com/Imanol91)
 
