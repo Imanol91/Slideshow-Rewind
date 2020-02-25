@@ -17,7 +17,7 @@ or
 <script src="SlideshowRewind.js"></script>
 ```
 
-then follow the examples in "example" folder
+then to follow the examples in "example" folder
 
 ## Options
 
@@ -37,7 +37,7 @@ the options above are accessible and configurable from the instance like propert
 
 ## API
 
-A SlideshowRewinde instance exposes the following public methods:
+A SlideshowRewind instance exposes the following public methods:
 
 | Methods                  | Description                                                                                             |
 |--------------------------|---------------------------------------------------------------------------------------------------------|
