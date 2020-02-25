@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>No.7</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <script src="SlideshowRewind.min.js"></script>
+
+        <style>
+            .center{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .centerX{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            div{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .size{
+                width: 50vw;
+                height: 35vh;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <erv-slideshow class="centerX size">                        
+
+        </erv-slideshow>
+
+        <div class="center" style="top: 35%; height: 5vh;">
+            <button data-slideshow="No7" data-function="Previous">Previous</button>
+            <p data-slideshow="No7" data-function="Counter">contador</p>
+            <button data-slideshow="No7" data-function="Next">Next</button>
+        </div>
+
+
+        <erv-slideshow class="centerX size" style="top: 40%" data-name="No7.2" data-orientation="Horizontal">
+            <erv-roll>
+                <erv-slide>
+
+                    <div class="center" style="background-color: yellow;">
+                        1
+                    </div>
+
+                </erv-slide>
+
+                <erv-slide>
+                    <div class="center" style="background-color: blue;">
+                        2
+                    </div>
+
+                </erv-slide>
+
+                <erv-slide>
+
+                    <div class="center" style="background-color: tomato">
+                        3
+                    </div>
+
+                </erv-slide>
+                
+            </erv-roll>
+
+            <div class="center" style="top: 95%; height: 5vh;" data-function="Controls">
+                <button data-function="Previous">Previous</button>
+                <p data-function="Counter">contador</p>
+                <button data-function="Next">Next</button>
+            </div>
+
+        </erv-slideshow>
+        
+        <script>
+
+            const callback = function(index, slide, itself){
+                const color = slide.querySelector('div').style.backgroundColor;
+                console.log("Name = "+ itself.Name +"  Slide = " + (index + 1) + " color = " + color );
+            }
+
+            const options = {
+                Name: "No7",                    // a string with a desired name         *it is Mandatory to set it
+                Orientation: "Vertical",      // "Horizontal"   || "Vertical"         *it is Mandatory to set it
+                //Continuity: "Rewind",         // "Rewind"  || "Pseudo-continuous"     *default is "Rewind"
+                //Transition: 0.4,              // a number what means seconds          *default is 0.4
+                //Ratio: 0.22                   // a number from Ratio > 0 to Ratio <= 1, (touchRatio) *default is 0.22. aprox. 1/4 Slide
+                Callback: callback  //a fire function when slide change
+                //Next: null,
+                //Previous: null,
+                //Counter: null
+            }
+            
+            const slideshow = new SlideshowRewind(document.querySelector('erv-slideshow'), options);
+
+            function createSlide(text, color){
+                const slide = document.createElement("div");
+                slide.className = "center";
+                slide.innerText = text;
+                slide.style.backgroundColor = color;
+                return slide;
+            }
+
+            slideshow.addSlides(
+                [
+                    createSlide(1, "aqua"), 
+                    createSlide(2, "bisque"), 
+                    createSlide(3, "burlywood")
+                ]
+            );
+
+            const slideshow2 = new SlideshowRewind(document.querySelector('erv-slideshow[data-name="No7.2"]'));
+            slideshow2.Continuity = "Pseudo-continuous";
+            slideshow2.Callback = callback;
+
+            //Delegate events
+            SlideshowRewind.createEvents(
+                {
+                    click: function(e){
+                        slideshow.clickEvent(e);
+                        slideshow2.clickEvent(e);
+                    },
+                    resize: function(e){ 
+                        slideshow.resizeEvent(e);
+                        slideshow2.resizeEvent(e);
+                    },
+
+                    touchstart: function(e){
+                        slideshow.touchstartEvent(e);
+                        slideshow2.touchstartEvent(e);
+                    },
+
+                    touchmove: function(e){
+                        slideshow.touchmoveEvent(e);
+                        slideshow2.touchmoveEvent(e);
+                    },
+
+                    touchend: function(e){
+                        slideshow.touchendEvent(e);
+                        slideshow2.touchendEvent(e);
+                    }
+                }
+            );
+
+        </script>
+
+    </body>
+</html>

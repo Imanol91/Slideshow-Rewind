@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>No.2</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <script src="SlideshowRewind.js"></script>
+
+        <style>
+            .center{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }            
+
+            div{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .size{
+                width: 50vw;
+                height: 35vh;
+                border: 1px solid red;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <erv-slideshow class="center size" data-name="No2" data-orientation="Vertical">
+            <erv-roll>
+                <erv-slide>
+
+                    <div class="center" style="background-color: aqua;">
+                        1
+                    </div>
+
+                </erv-slide>
+
+                <erv-slide>
+                    <div class="center" style="background-color: bisque;">
+                        2
+                    </div>
+
+                </erv-slide>
+
+                <erv-slide>
+
+                    <div class="center" style="background-color:burlywood">
+                        3
+                    </div>
+
+                </erv-slide>
+                
+            </erv-roll>            
+
+        </erv-slideshow>
+
+        <div class="center" style="top: 75%; height: 5vh;">
+            <button data-slideshow="No2" data-function="Previous">Previous</button>
+            <p data-slideshow="No2" data-function="Counter">contador</p>
+            <button data-slideshow="No2" data-function="Next">Next</button>
+        </div>
+        
+        <script>
+            
+            const Slideshow = new SlideshowRewind(document.querySelector('erv-slideshow'));
+
+            Slideshow.activate();
+
+        </script>
+
+    </body>
+</html>

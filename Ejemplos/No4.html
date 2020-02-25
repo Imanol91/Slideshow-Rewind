@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>No.4</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <script src="SlideshowRewind.js"></script>
+
+        <style>
+            .center{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }            
+
+            div{
+                width: 80%;
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .size{
+                width: 50vw;
+                height: 35vh;
+                border: 1px solid red;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <erv-slideshow class="center size" data-name="No4" data-orientation="Vertical">
+            <erv-roll>
+                <erv-slide>
+
+                    <div class="center" style="background-color: aqua;">
+                        1
+                    </div>
+
+                </erv-slide>
+
+                <erv-slide>
+                    <div class="center" style="background-color: bisque;">
+                        2
+                    </div>
+
+                </erv-slide>
+
+                <erv-slide>
+
+                    <div class="center" style="background-color:burlywood">
+                        3
+                    </div>
+
+                </erv-slide>
+                
+            </erv-roll>
+
+            <div class="center" style="top: 95%; height: 5vh;" data-function="Controls">
+                <button id="Previous">Previous</button>
+                <p id="Counter">contador</p>
+                <button id="Next">Next</button>
+            </div>
+
+        </erv-slideshow>
+
+        
+        
+        <script>
+
+            const options = {
+                //Name: "No4",                  // a string with a desired name         *it is Mandatory to set it
+                Orientation: "Horizontal",      // "Horizontal"   || "Vertical"         *it is Mandatory to set it
+                //Continuity: "Rewind",         // "Rewind"  || "Pseudo-continuous"     *default is "Rewind"
+                //Transition: 0.4,              // a number what means seconds          *default is 0.4
+                //Ratio: 0.22                   // a number from Ratio > 0 to Ratio <= 1, (touchRatio) *default is 0.22. aprox. 1/4 Slide
+                Callback: function(index, slide, itself){  //a fire function when slide change
+                    const color = slide.querySelector('div').style.backgroundColor;
+                    console.log("Name = " + itself.Name + "  Slide = " + (index + 1) + " color = " + color ) ;
+                }, 
+                Next: document.getElementById("Next"),
+                Previous: document.getElementById("Previous"),
+                Counter: document.getElementById("Counter")
+
+            }
+            
+            const Slideshow = new SlideshowRewind(document.querySelector('erv-slideshow'), options);
+
+            Slideshow.activate();
+
+        </script>
+
+    </body>
+</html>
