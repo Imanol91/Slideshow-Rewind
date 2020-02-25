@@ -66,10 +66,6 @@ A SlideshowRewinde instance exposes the following public methods:
 | `Count`  | Return `Slides.length` |
 | `Length` | Return `Slides.length` |
 
-### Accessible and configurable properties
-
-
-
 ### Delegate methods
 Slideshow Rewind allowing delegate events for better performance
 
