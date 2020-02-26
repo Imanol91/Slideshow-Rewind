@@ -62,7 +62,7 @@ A SlideshowRewind instance exposes the following public methods:
 | `Index`            | Return the current index of the current slide.                                                                |
 | `Tag`        | Return `<erv-slideshow>` tag        |
 | `Roll` | Return `<erv-roll>` tag |
-| `Slides`  | Return a nodeList of <erv-slide> |
+| `Slides`  | Return a nodeList of `<erv-slide>` |
 | `Count`  | Return `Slides.length` |
 | `Length` | Return `Slides.length` |
 
